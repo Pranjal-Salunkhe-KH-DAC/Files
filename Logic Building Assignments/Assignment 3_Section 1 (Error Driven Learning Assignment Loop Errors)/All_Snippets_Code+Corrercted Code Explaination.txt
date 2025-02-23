@@ -1,0 +1,353 @@
+//Snippet 1:  
+/*
+public class InfiniteForLoop { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 10; i--) { 
+            System.out.println(i); 
+        } 
+    } 
+} 
+*/
+/*
+
+Q. Error to investigate: Why does this loop run infinitely? How should the loop control variable be adjusted?
+
+Answer: Here we are giving the wrong condition and also the wrong decrement.
+	Here we correct Decrement and make it increment i++.
+
+*/
+//Corrected Code: 
+public class InfiniteForLoop { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 10; i++) { 
+            System.out.println(i); 
+        } 
+    } 
+} 
+--------------------------------------------------------------------------------------------
+
+//Snippet 2: 
+/* 
+public class IncorrectWhileCondition { 
+    public static void main(String[] args) { 
+        int count = 5; 
+        while (count = 0) { 
+            System.out.println(count); 
+            count--; 
+        } 
+    } 
+} */
+/*
+
+Q. Error to investigate: Why does the loop not execute as expected? What is the issue with the condition in the while` loop? 
+
+Error: incompatible types: int cannot be converted to boolean
+
+Answer: Here we are assigning binary value not any condition that is the problem
+*/
+//Corrected Code: 
+
+public class IncorrectWhileCondition { 
+    public static void main(String[] args) { 
+        int count = 5; 
+        while (count >= 0) { 
+            System.out.println(count); 
+            count--; 
+        } 
+    } 
+} 
+
+------------------------------------------------------------------------------------------
+
+//Snippet 3:  
+/*
+public class DoWhileIncorrectCondition { 
+    public static void main(String[] args) { 
+        int num = 0; 
+        do { 
+            System.out.println(num); 
+            num++; 
+        } while (num > 0); 
+ 
+ 
+    } 
+} 
+*/
+/*
+Q. Error to investigate: Why does the loop only execute once? What is wrong with the loop condition in the `do while` loop? 
+
+Answer: 
+This causing infinite loop because condition in while is wrong for corresponding increment
+
+*/
+//Corrected Code: 
+
+public class DoWhileIncorrectCondition { 
+    public static void main(String[] args) { 
+        int num = 0; 
+        do { 
+            System.out.println(num); 
+            num++; 
+        } while (num <= 0); 
+ 
+ 
+    } 
+} 
+
+-----------------------------------------------------------------------------------------
+
+
+//Snippet 4:  
+/*
+public class OffByOneErrorForLoop { 
+    public static void main(String[] args) { 
+        for (int i = 1; i <= 10; i++) { 
+            System.out.println(i); 
+        } 
+        // Expected: 10 iterations with numbers 1 to 10 
+        // Actual: Prints numbers 1 to 10, but the task expected only 1 to 9 
+    } 
+} 
+*/
+/*
+
+Q. Error to investigate: What is the issue with the loop boundaries? How should the loop be adjusted to meet the expected output? 
+
+Answer: Cause in condition of for loop we gave condition i<=10.
+	So it will prints 10 also.
+*/
+//Corrected Code: 
+public class OffByOneErrorForLoop { 
+    public static void main(String[] args) { 
+        for (int i = 1; i < 10; i++) { 
+            System.out.println(i); 
+        } 
+        
+    } 
+} 
+-------------------------------------------------------------------------------------------
+
+//Snippet 5:  
+/*
+public class WrongInitializationForLoop { 
+    public static void main(String[] args) { 
+        for (int i = 10; i >= 0; i++) { 
+            System.out.println(i); 
+        } 
+    } 
+} */
+/*
+
+Q. Error to investigate: Why does this loop not print numbers in the expected order? What is the problem with the initialization and update statements in the `for` loop?
+
+Answer: 
+We given Greater than 10 condition and along with that we are incrementing the value of i, This creating mess.So we need to change condition and decrement it.
+
+*/ 
+//Corrected Code:
+public class WrongInitializationForLoop { 
+    public static void main(String[] args) { 
+        for (int i = 10; i >= 0; i--) { 
+            System.out.println(i); 
+        } 
+    } 
+}
+----------------------------------------------------------------------------------------
+//Snippet 6:  
+/*
+public class MisplacedForLoopBody { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 5; i++) 
+            System.out.println(i); 
+            System.out.println("Done"); 
+    } 
+} 
+*/
+/*
+
+Q.Error to investigate: Why does "Done" print only once, outside the loop? How should the loop body be enclosed to include all statements within the loop?
+
+Answer: Done is printing only once because the loop's scope ends before it. We have not given curly braces that's why the loop is not proceeding with the Done printing statement.
+
+*/
+//Corrected Code
+ public class MisplacedForLoopBody { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 5; i++){
+            System.out.println(i); 
+            System.out.println("Done"); 
+	}
+    } 
+} 
+-------------------------------------------------------------------------------------------
+
+
+//Snippet 7:  
+/*
+public class UninitializedWhileLoop { 
+    public static void main(String[] args) { 
+        int count; 
+ 
+ 
+        while (count < 10) { 
+            System.out.println(count); 
+            count++; 
+        } 
+    } 
+} */
+/*
+
+Q.Error to investigate: Why does this code produce a compilation error? What needs to be done to initialize the loop variable properly? 
+
+Error: variable count might not have been initialized
+        while (count < 10) 
+Answer: We need to initialize count before assigning it to loop.
+
+*/
+//Correted Code:
+public class UninitializedWhileLoop { 
+    public static void main(String[] args) { 
+        int count=1; 
+ 	
+ 
+        while (count < 10) { 
+            System.out.println(count); 
+            count++; 
+        } 
+    } 
+} 
+-------------------------------------------------------------------------------------------
+
+//Snippet 8:  
+/*
+public class OffByOneDoWhileLoop { 
+    public static void main(String[] args) { 
+        int num = 1; 
+        do { 
+            System.out.println(num); 
+            num--; 
+        } while (num > 0); 
+    } 
+} */
+/*
+
+Q.Error to investigate: Why does this loop print unexpected numbers? What adjustments are needed to print the numbers from 1 to 5? 
+
+Answer: Because it is do while loop although we gave the wrong decrement and condition then also it executes only once. To correct it we need to change the decrement condition and condition also.
+
+*/
+//Corrected Code: 
+
+public class OffByOneDoWhileLoop { 
+    public static void main(String[] args) { 
+        int num = 1; 
+        do { 
+            System.out.println(num); 
+            num++; 
+        } while (num <=5); 
+    } 
+}
+
+-------------------------------------------------------------------------------------------
+
+//Snippet 9:  
+public class InfiniteForLoopUpdate { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 5; i += 2) { 
+            System.out.println(i); 
+        } 
+    } 
+} 
+/*
+Q. Error to investigate: Why does the loop print unexpected results or run infinitely? How should the loop update expression be corrected? 
+
+Answer: 
+The loop is working fine, It is not an infinite loop and it shows the result of an incrementation of 2.
+
+*/
+-------------------------------------------------------------------------------------------
+
+//Snippet 10:  
+/*
+public class IncorrectWhileLoopControl { 
+    public static void main(String[] args) { 
+        int num = 10; 
+        while (num = 10) { 
+            System.out.println(num); 
+            num--; 
+        } 
+    } 
+} 
+*/
+/*
+
+Q.Error to investigate: Why does the loop execute indefinitely? What is wrong with the loop condition?
+
+Error: incompatible types: int cannot be converted to boolean
+
+Answer: We are assigning non zero value instead of condition, Because of that it is not working.
+
+*/
+//Corrected Code: 
+public class IncorrectWhileLoopControl { 
+    public static void main(String[] args) { 
+        int num = 10; 
+        while (num >= 0) { 
+            System.out.println(num); 
+            num--; 
+        } 
+    } 
+} 
+-------------------------------------------------------------------------------------------
+
+//Snippet 11:  
+
+public class IncorrectLoopUpdate { 
+    public static void main(String[] args) { 
+        int i = 0; 
+        while (i < 5) { 
+            System.out.println(i); 
+            i += 2; // Error: This may cause unexpected results in output 
+        } 
+    } 
+} 
+
+/*
+Q. Error to investigate: What will be the output of this loop? How should the loop variable be updated to achieve the desired result?
+
+Answer: It causes increment by 2 not have sequential increment because we use i+=2.
+
+*/
+-------------------------------------------------------------------------------------------
+
+//Snippet 12:  
+/*
+public class LoopVariableScope { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 5; i++) { 
+            int x = i * 2; 
+        } 
+        System.out.println(x); // Error: 'x' is not accessible here 
+    } 
+} */
+/* 
+Q. Error to investigate: Why does the variable 'x' cause a compilation error? How does scope
+
+Error: cannot find symbol
+
+Answer: This error is because that SOP statement is out of the scope of for loop.
+*/
+
+//Corrected Code: 
+
+public class LoopVariableScope { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 5; i++) { 
+            int x = i * 2; 
+        
+        System.out.println(x);
+	}
+    } 
+}
+
+
