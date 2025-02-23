@@ -1,0 +1,780 @@
+/*
+
+public class Main { 
+    public void main(String[] args) { 
+        System.out.println("Hello, World!"); 
+    } 
+}
+
+*/
+
+//Error: Main Method is not defined static so we need to add thatwise
+
+//Solution : 
+
+public class Main { 
+    public static void main(String[] args) { 
+        System.out.println("Hello, World!"); 
+    } 
+}
+
+---------------------------------------------------------------------------------------------
+
+//Snippet 2 : 
+
+public class Main { 
+    static void main(String[] args) { 
+        System.out.println("Hello, World!"); 
+    } 
+}
+
+//Q. What happens when you compile and run this code?
+//Answer: It prints Hello, World as shown ------>
+
+------------------------------------------------------------------------------------------
+
+//Snippet 3:  
+
+/*
+public class Main { 
+    public static int main(String[] args) { 
+        System.out.println("Hello, World!"); 
+        return 0; 
+    }
+
+}
+
+*/
+
+
+/*
+
+Q. What error do you encounter? Why is void used in the main method? 
+
+Error:  The main method must return a value of type void in class Main, please
+	define the main method as:
+   	public static void main(String[] args)
+
+	We also need to remove that return 0: from code.
+
+*/
+
+//Corrected Code:
+
+
+public class Main { 
+    public static void main(String[] args) { 
+        System.out.println("Hello, World!"); 
+        
+    }
+
+}
+------------------------------------------------------------------------------------------
+
+
+//Snippet 4:  
+/*public class Main { 
+    public static void main() { 
+        System.out.println("Hello, World!"); 
+    } 
+} */
+
+//What happens when you compile and run this code? Why is String[] args needed? 
+
+/* 1. Error: Main method not found in class Main, please define the main method as:
+   		public static void main(String[] args)
+
+	
+   2. Main method is important because------> it allows a program to take an argument when   						program line executes
+
+*/
+
+//Corrected Code: 
+public class Main { 
+    public static void main(String[] args) { 
+        System.out.println("Hello, World!"); 
+    } 
+}	
+
+
+-----------------------------------------------------------------------------------------
+
+//Snippet 5:  
+public class Main { 
+    public static void main(String[] args) { 
+        System.out.println("Main method with String[] args"); 
+    } 
+    public static void main(int[] args) { 
+        System.out.println("Overloaded main method with int[] args"); 
+    } 
+} 
+
+/*
+
+Que.    Can you have multiple main methods? What do you observe?
+Answer.	We can have the main method multiple times, but here, the main method with the type 	void prints because the main method does not return any value, so void is correct 	instead of int.
+
+
+*/
+
+-------------------------------------------------------------------------------------------
+
+
+//Snippet 6:  
+/*
+
+public class Main { 
+    public static void main(String[] args) { 
+        int x = y + 10; 
+        System.out.println(x); 
+    } 
+} 
+
+*/
+
+/*
+
+Error: error: cannot find symbol
+        int x = y + 10;
+                ^
+  	symbol:   variable y
+  	location: class Main
+
+
+Question: What error occurs? Why must variables be declared? 
+
+Answer: 
+We need to declare any variable before using that because if the compiler knows that     declaration the only it can allocate proper memory to that particular type of variable
+
+*/
+
+//Corrected Code: 
+public class Main { 
+    public static void main(String[] args) { 
+        int y=9;
+	int x = y + 10; 
+        System.out.println(x); 
+    } 
+} 
+-------------------------------------------------------------------------------------------
+
+
+//Snippet 7:  
+/*
+public class Main { 
+    public static void main(String[] args) { 
+        int x = "Hello"; 
+        System.out.println(x); 
+    } 
+}
+*/
+/*
+Q. What compilation error do you see? Why does Java enforce type safety? 
+
+Ans: error: incompatible types: String cannot be converted to int
+        int x = "Hello";
+	
+	-->We are storing string into integer
+	-->This is because type safety, if we defint int then that type only memory allocate 	to variable so stroing defined type of value in it is important to memory management.
+
+*/
+
+//Corrected Code: 
+public class Main { 
+    public static void main(String[] args) { 
+        int x = 9; 
+        System.out.println(x); 
+    } 
+}
+-----------------------------------------------------------------------------------------
+
+
+//Snippet 8:  
+/*
+public class Main { 
+    public static void main(String[] args) { 
+        System.out.println("Hello, World!" 
+    } 
+} 
+*/
+/*
+
+Q. What syntax errors are present? How do they affect compilation? 
+Answer:  error: ')' expected
+        System.out.println("Hello, World!"
+
+*/
+//Corrected Code: 
+public class Main { 
+    public static void main(String[] args) { 
+        System.out.println("Hello, World!"); 
+    } 
+} 
+------------------------------------------------------------------------------------------
+
+
+//Snippet 9:  
+/*
+
+public class Main { 
+    public static void main(String[] args) { 
+        int class = 10; 
+        System.out.println(class); 
+    } 
+} 
+
+*/
+/*
+
+Q. What error occurs? Why can't reserved keywords be used as identifiers?
+
+Answer: class is a reserved keyword in java that's why errors are occurring.
+        We can't use them because they have predefined meaning for compiler
+
+
+*/ 
+
+//Corrected Code:
+public class Main { 
+    public static void main(String[] args) { 
+        int c = 10; 
+        System.out.println(c); 
+    } 
+} 
+-----------------------------------------------------------------------------------------
+
+//Snippet 10:  
+/*
+public class Main { 
+    public void display() { 
+        System.out.println("No parameters"); 
+    } 
+    public void display(int num) { 
+        System.out.println("With parameter: " + num); 
+    } 
+    public static void main(String[] args) { 
+        display(); 
+        display(5); 
+    } 
+} 
+Q. What happens when you compile and run this code? Is method overloading allowed?
+
+Error: error: non-static method display() cannot be referenced from a static context
+
+Answer: 1. This is because we have not created any object for the display method, so their 	  will be no instance created and don't have proper memory location
+	
+	2. Yes Method overloading is allowed in Java but it should have different parameters
+*/
+//Corrected Code: 
+public class Main { 
+    public void display() { 
+        System.out.println("No parameters"); 
+    } 
+    public void display(int num) { 
+        System.out.println("With parameter: " + num); 
+    } 
+    public static void main(String[] args) { 
+        Main obj=new Main();
+	obj.display(); 
+        obj.display(5); 
+    } 
+} 
+
+
+-------------------------------------------------------------------------------------------
+//Snippet 11:  
+/*
+public class Main { 
+    public static void main(String[] args) { 
+        int[] arr = {1, 2, 3}; 
+        System.out.println(arr[5]); 
+    } 
+} */
+/*
+
+Q. What runtime exception do you encounter? Why does it occur? 
+
+Error:  Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 5 out of 	bounds for length 3
+
+Answer: 
+
+Yes, we have a runtime error in which we are trying to print the 5th index of the given array, but the size of the array is 3 so we are encountering this error.
+
+*/
+
+//Corrected Code: 
+
+public class Main { 
+    public static void main(String[] args) { 
+        int[] arr = {1, 2, 3}; 
+        System.out.println(arr[2]); 
+    } 
+} 
+-------------------------------------------------------------------------------------------
+
+//Snippet 12:
+
+/*
+public class Main { 
+    public static void main(String[] args) { 
+        while (true) { 
+            System.out.println("Infinite Loop"); 
+        } 
+    } 
+} */
+/*
+
+Q. What happens when you run this code? How can you avoid infinite loops? 
+
+Answer: 
+Here we have given the condition for while loop is True' so that it will undergo an infinite loop.
+We need to set some specific conditions to avoid this infinite loop
+
+
+*/
+//Corrected Code: 
+public class Main { 
+    public static void main(String[] args) { 
+        int a=0;
+	while (a<5) { 
+            System.out.println("Infinite Loop"); 
+		a++;
+        } 
+    } 
+}
+------------------------------------------------------------------------------------------
+
+
+//Snippet 13:  
+/*blic class Main { 
+    public static void main(String[] args) { 
+        String str = null; 
+        System.out.println(str.length()); 
+    } 
+} */
+/*
+
+
+Q. What exception is thrown? Why does it occur?
+
+Answer: 
+
+Here Exception in the thread "main" java.lang.NullPointerException occurs, cause we are mapping the length of a string having null...We need to define a specific string in it to map its correct length.
+
+*/
+//Corrected Code: 
+public class Main { 
+    public static void main(String[] args) { 
+        String str = "Ram";
+        System.out.println(str.length()); 
+    } 
+} 
+------------------------------------------------------------------------------------------
+
+//Snippet 14:
+/*
+public class Main { 
+    public static void main(String[] args) { 
+        double num = "Hello"; 
+        System.out.println(num); 
+    } 
+} */
+
+/*
+What compilation error occurs? Why does Java enforce data type constraints?
+
+Answer:
+  	incompatible types: String cannot be converted to double.
+	We can not store string values in double cause they particularly have their own 	defined memory so when we assign such string to double it is an incompatible type 	error.
+
+*/
+//Corrected Code:
+
+public class Main { 
+    public static void main(String[] args) { 
+        String num="Hello";
+        System.out.println(num); 
+    } 
+}
+-----------------------------------------------------------------------------------------
+
+//Snippet: 15
+/*
+public class Main { 
+    public static void main(String[] args) { 
+        int num1 = 10; 
+        double num2 = 5.5; 
+        int result = num1 + num2; 
+        System.out.println(result); 
+    } 
+} 
+*/
+/*
+Q. What error occurs when compiling this code? How should you handle different data types 
+in operations? 
+
+Answer: We are performing an operation in between two different datatypes and storing it in int so that says incompatible types: possible lossy conversion from double to int.
+
+
+*/
+//Corrected Code: 
+public class Main { 
+    public static void main(String[] args) { 
+        int num1 = 10; 
+        int num2=5;
+        int result = num1 + num2; 
+        System.out.println(result); 
+    } 
+} 
+-------------------------------------------------------------------------------------------
+//Snippet 16:  
+public class Main { 
+    public static void main(String[] args) { 
+        int num = 10; 
+        double result = num / 4; 
+        System.out.println(result); 
+    } 
+} 
+/*
+
+Q. What is the result of this operation? Is the output what you expected? 
+
+Answer: 
+
+Here we are performing division, in which we are storing result in double that's why it's printing 2.0 instead of 2.
+
+
+*/
+
+-------------------------------------------------------------------------------------------
+
+
+//Snippet 17:  
+/*
+public class Main { 
+    public static void main(String[] args) { 
+        int a = 10; 
+        int b = 5; 
+        int result = a ** b; 
+        System.out.println(result); 
+    } 
+} */
+/*
+
+What compilation error occurs? Why is the ** operator not valid in Java? 
+
+Answer: error: illegal start of expression
+        int result = a ** b;
+Answer: Here we should put * cause compiler don't know meaning of **
+	Therefore, * performs multiplication operation
+
+
+*/
+//Corrected Code
+public class Main { 
+    public static void main(String[] args) { 
+        int a = 10; 
+        int b = 5; 
+        int result = a * b; 
+        System.out.println(result); 
+    } 
+} 
+------------------------------------------------------------------------------------------
+
+//Snippet 18:  
+
+public class Main { 
+    public static void main(String[] args) { 
+        int a = 10; 
+        int b = 5; 
+        int result = a + b * 2; 
+        System.out.println(result); 
+    } 
+} 
+
+/*
+Q. What is the output of this code? How does operator precedence affect the result?
+
+Answer: Output of Code is 20.
+	Yes, Operator Precedence matters,The operator precedence for arithmetiuc operations 	are:
+	1.() 
+	2. *,/, %
+	3. +, - 
+	4. =
+
+*/
+-----------------------------------------------------------------------------------------
+
+//Snippet 19:  
+/*
+public class Main { 
+    public static void main(String[] args) { 
+        int a = 10; 
+        int b = 0; 
+        int result = a / b; 
+        System.out.println(result); 
+    } 
+} */
+/*
+
+Q.What runtime exception is thrown? Why does division by zero cause an issue in Java?
+
+Answer: 
+	n java division by Zero is mathematically undefined for compiler so it throws an 	exception in code.
+
+*/
+//Corrected Code
+public class Main { 
+    public static void main(String[] args) { 
+        int a = 10; 
+        int b = 2;
+        int result = a / b; 
+        System.out.println(result); 
+    } 
+}
+------------------------------------------------------------------------------------------
+
+//Snippet 20:  
+/*
+public class Main { 
+    public static void main(String[] args) { 
+        System.out.println("Hello, World") 
+    } 
+} 
+*/
+/*
+Q. What syntax error occurs? How does the missing semicolon affect compilation?
+
+Answer: yes ; is a terminator for any syntax so it is important.
+
+*/
+//Corrected Code: 
+
+public class Main { 
+    public static void main(String[] args) { 
+        System.out.println("Hello, World");
+    } 
+} 
+------------------------------------------------------------------------------------------
+//Snippet 21:  
+/*
+public class Main { 
+    public static void main(String[] args) { 
+        System.out.println("Hello, World!"); 
+    // Missing closing brace here 
+} 
+*/
+/*
+Q. What does the compiler say about mismatched braces? 
+
+Answer: reached the end of file while parsing
+	We need to complete main method so Parenthesis in important.
+*/
+//Corrected Code: 
+public class Main { 
+    public static void main(String[] args) { 
+        System.out.println("Hello, World!"); 
+     
+} 
+}
+------------------------------------------------------------------------------------------
+
+//Snippet 22:  
+/*
+public class Main { 
+    public static void main(String[] args) { 
+        static void displayMessage() { 
+            System.out.println("Message"); 
+        } 
+    } 
+} 
+*/
+/*
+Q. What syntax error occurs? Can a method be declared inside another method? 
+
+Error: illegal start of expression
+
+Answer: we can not define this kinda method inside the method so it's wrong.We can call any method inside another method.
+
+*/
+//Corrected Code: 
+public class Main { 
+    public static void main(String[] args) { 
+        displayMessage();
+    } 
+	static void displayMessage() { 
+            System.out.println("Message"); 
+        } 
+} 
+------------------------------------------------------------------------------------------
+
+
+//Snippet 23:  
+/*public class Confusion { 
+    public static void main(String[] args) { 
+        int value = 2; 
+        switch(value) { 
+            case 1: 
+                System.out.println("Value is 1"); 
+            case 2: 
+                System.out.println("Value is 2"); 
+            case 3: 
+                System.out.println("Value is 3"); 
+            default: 
+                System.out.println("Default case"); 
+        } 
+    } 
+} 
+Q. Error to Investigate: Why does the default case print after "Value is 2"? How can you prevent the program from executing the default case?
+
+Answer: We need to give break statement to proper execution of specific case.
+*/
+
+//Corrected Code: 
+public class Confusion { 
+    public static void main(String[] args) { 
+        int value = 2; 
+        switch(value) { 
+            case 1: 
+                System.out.println("Value is 1");
+		break; 
+            case 2: 
+                System.out.println("Value is 2"); 
+		break; 
+            case 3: 
+                System.out.println("Value is 3"); 
+		break; 
+            default: 
+                System.out.println("Default case"); 
+		break; 
+        } 
+    } 
+} 
+-------------------------------------------------------------------------------------
+
+//Snippet 24:  
+/* public class MissingBreakCase { 
+    public static void main(String[] args) { 
+        int level = 1; 
+        switch(level) { 
+            case 1: 
+                System.out.println("Level 1"); 
+            case 2: 
+                System.out.println("Level 2"); 
+            case 3: 
+                System.out.println("Level 3"); 
+            default: 
+                System.out.println("Unknown level"); 
+        } 
+    } 
+} */
+/*
+Q. Error to Investigate: When level is 1, why does it print "Level 1", "Level 2", 
+"Level 3", and "Unknown level"? What is the role of the break statement in this situation?
+
+Answer-----> Again Break; Statement is not their.*/
+//Corrected Code: 
+public class MissingBreakCase { 
+    public static void main(String[] args) { 
+        int level = 1; 
+        switch(level) { 
+            case 1: 
+                System.out.println("Level 1");
+		break; 
+            case 2: 
+                System.out.println("Level 2"); 
+		break; 
+            case 3: 
+                System.out.println("Level 3"); 
+		break; 
+            default: 
+                System.out.println("Unknown level");
+		break; 
+ 
+        } 
+    } 
+} 
+-------------------------------------------------------------------------------------
+
+//Snippet 25:  
+/*public class Switch { 
+    public static void main(String[] args) { 
+        double score = 85.0; 
+        switch(score) { 
+            case 100: 
+                System.out.println("Perfect score!"); 
+                break; 
+            case 85: 
+                System.out.println("Great job!"); 
+                break; 
+            default: 
+                System.out.println("Keep trying!"); 
+        } 
+    } 
+} */
+/*
+Error to Investigate: Why does this code not compile? What does the error tell you about the types allowed in switch expressions? How can you modify the code to make it work? 
+
+Answer--->Here score type is double and we are assigning integer cases which is the problem for incompatible types.*/
+//Corrected Code: 
+
+public class Switch { 
+    public static void main(String[] args) { 
+        int score = 85; 
+        switch(score) { 
+            case 100: 
+                System.out.println("Perfect score!"); 
+                break; 
+            case 85: 
+                System.out.println("Great job!"); 
+                break; 
+            default: 
+                System.out.println("Keep trying!"); 
+        } 
+    } 
+} 
+------------------------------------------------------------------------------------
+//Snippet 26:  
+/*public class Switch { 
+    public static void main(String[] args) { 
+        int number = 5; 
+        switch(number) { 
+            case 5: 
+                System.out.println("Number is 5"); 
+ 
+ 
+                break; 
+            case 5: 
+                System.out.println("This is another case 5"); 
+                break; 
+            default: 
+                System.out.println("This is the default case"); 
+        } 
+    } 
+} */
+/*
+Error to Investigate: Why does the compiler complain about duplicate case labels? What 
+happens when you have two identical case labels in the same switch block?
+
+Answer: We can not assign the same case name...It creates an error of duplicate name.
+
+*/
+//Corrected Code: 
+public class Switch { 
+    public static void main(String[] args) { 
+        int number = 5; 
+        switch(number) { 
+            case 4: 
+                System.out.println("Number is 5"); 
+                break; 
+            case 5: 
+                System.out.println("This is another case 5"); 
+                break; 
+            default: 
+                System.out.println("This is the default case"); 
+        } 
+    } 
+} 
+
+
+
